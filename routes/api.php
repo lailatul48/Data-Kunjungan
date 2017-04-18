@@ -13,8 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+// //Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:api');
 
-Route::resource('contacts','ContactController');
+Route::resource('visitors','VisitorsController');
+Route::resource('log','LogController');
+Route::resource('users','UsersController');

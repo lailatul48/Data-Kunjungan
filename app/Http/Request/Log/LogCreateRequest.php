@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Contact;
+namespace App\Http\Requests\Log;
 
 use App\Http\Requests\Request;
 
@@ -9,7 +9,7 @@ use App\Http\Requests\Request;
  *
  * @package App\Http\Requests\User
  */
-class ContactCreateRequest extends Request
+class LogCreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,10 +27,8 @@ class ContactCreateRequest extends Request
      * @var array
      */
     protected $attrs = [
-        'name'    => 'Name',
-        'email'   => 'Email',
-        'address' => 'Address',
-        'phone'   => 'Phone'
+        'description'   => 'Description',
+        'type'   => 'Type',
     ];
 
     /**
@@ -41,10 +39,8 @@ class ContactCreateRequest extends Request
     public function rules()
     {
         return [
-            'name'    => 'required|max:225',
-            'email'   => 'required|email|unique:contacts,email|max:225',
-            'address' => 'required|max:60',
-            'phone'   => 'required|max:30'
+            'description'   => 'required|max:225',
+            'type'   => 'required|max:225',
         ];
     }
 
