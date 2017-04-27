@@ -10,7 +10,7 @@ class Users extends Model
     // use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'level', 'status',
+        'name', 'id_anggota', 'nis', 'email', 'password', 'level', 'status',
     ];
 
     protected $hidden = [
