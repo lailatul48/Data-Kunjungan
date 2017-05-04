@@ -71,7 +71,7 @@ class VisitorsRepository extends AbstractRepository implements VisitorsInterface
      */
     public function update($id, array $data)
     {
-        return parent::create([
+        return parent::update($id, [
             'name' => e($data['name']),
             'nis' => e($data['nis']),
         ]);

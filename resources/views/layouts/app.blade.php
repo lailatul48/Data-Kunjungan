@@ -27,6 +27,9 @@
 
     <!-- Custom Theme Style -->
     <link href={{asset('build/css/custom.min.css')}} rel="stylesheet">
+    <link href={{asset('vendors/pnotify/dist/pnotify.css')}} rel="stylesheet">
+    <link href={{asset('vendors/pnotify/dist/pnotify.buttons.css')}} rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href={{asset('css/sweetalert.css')}}>
     @yield('styles')
   </head>
 
@@ -128,7 +131,12 @@
   <!-- starrr -->
   <script src={{asset('vendors/starrr/dist/starrr.js')}}></script>
   <!-- Custom Theme Scripts -->
-  <script src={{asset('build/js/custom.min.js')}}></script>
+  <script src={{asset('build/js/custom.js')}}></script>
+  <script src={{asset('vendors/pnotify/dist/pnotify.js')}}></script>
+  <script src={{asset('vendors/pnotify/dist/pnotify.buttons.js')}}></script>
+   <script src={{asset('js/sweetalert.min.js')}}></script> 
+  
+
     <script>
     $(document).ready(function(){
         var pathname = window.location.pathname;
@@ -140,22 +148,22 @@
                 $('#nav-list-logs').removeClass('active');
                 $('#nav-dashboard').addClass('active');
                 break; 
-            case '/list-users':
-            case '/create-users':
+            case '/users':
+            case '/users/create':
                 $('#nav-dashboard').removeClass('active');
                 $('#nav-list-visitors').removeClass('active');
                 $('#nav-list-logs').removeClass('active');
                 $('#nav-list-users').addClass('active');
                 break; 
-            case '/list-visitors':
-            case '/create-visitors':
+            case '/visitors':
+            case '/visitors/create':
                 $('#nav-dashboard').removeClass('active');
                 $('#nav-list-logs').removeClass('active');
                 $('#nav-list-users').removeClass('active');
                 $('#nav-list-visitors').addClass('active');
                 break;  
-            case '/list-logs':
-            case '/create-logs':
+            case '/logs':
+            case '/logs/create':
                 $('#nav-dashboard').removeClass('active');
                 $('#nav-list-users').removeClass('active');
                 $('#nav-list-visitors').removeClass('active');

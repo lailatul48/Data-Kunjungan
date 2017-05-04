@@ -9,7 +9,7 @@ use App\Http\Requests\Request;
  *
  * @package App\Http\Requests\User
  */
-class UsersCreateRequest extends Request
+class UsersEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,9 +30,8 @@ class UsersCreateRequest extends Request
         'nis'   => 'Nis',
         'name'   => 'Name',
          'email'    => 'Email',
-        'password'   => 'Password',
          'level'    => 'Level',
-        'status'   => 'Status',
+        'status'   => 'Status'
     ];
 
     /**
@@ -46,9 +45,8 @@ class UsersCreateRequest extends Request
             'nis'   => 'required|max:225',
             'name'   => 'required|max:225',
             'email' => 'required|email|unique:contacts,email|max:225',
-            'password'   => 'required|max:30',
             'level'   => 'required|max:30',
-            'status'   => 'required|max:30',
+            'status'   => 'required|max:30'
         ];
     }
 

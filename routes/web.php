@@ -15,38 +15,14 @@ Route::get('/', function () {
     return view('pages.dashboard');
 })->name('page.dashboard');
 
-Route::get('/list-users', function () {
-    return view('pages.list-users');
-})->name('page.list-users');
+Route::get('/users','Pages\UsersController@index')->name('page.list-users');
+Route::get('/users/create','Pages\UsersController@create')->name('page.create-users');
+Route::get('/users/{id}/edit','Pages\UsersController@edit')->name('page.edit-users');
 
-Route::get('/list-visitors', function () {
-    return view('pages.list-visitors');
-})->name('page.list-visitors');
+Route::get('/visitors','Pages\VisitorsController@index')->name('page.list-visitors');
+Route::get('/visitors/create','Pages\VisitorsController@create')->name('page.create-visitors');
+Route::get('/visitors/{id}/edit','Pages\VisitorsController@edit')->name('page.edit-visitors');
 
-Route::get('/list-logs', function () {
-    return view('pages.list-logs');
-})->name('page.list-logs');
-
-Route::get('/create-users', function () {
-    return view('pages.create-users');
-})->name('page.create-users');
-
-Route::get('/create-visitors', function () {
-    return view('pages.create-visitors');
-})->name('page.create-visitors');
-
-Route::get('/create-logs', function () {
-    return view('pages.create-logs');
-})->name('page.create-logs');
-
-Route::get('/edit-users', function () {
-    return view('pages.edit-users');
-})->name('page.edit-users');
-
-Route::get('/edit-visitors', function () {
-    return view('pages.edit-visitors');
-})->name('page.edit-visitors');
-
-Route::get('/edit-logs', function () {
-    return view('pages.edit-logs');
-})->name('page.edit-logs');
+Route::get('/logs','Pages\LogsController@index')->name('page.list-logs');
+Route::get('/logs/create','Pages\LogsController@create')->name('page.create-logs');
+Route::get('/logs/{id}/edit','Pages\LogsController@edit')->name('page.edit-logs');

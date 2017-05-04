@@ -16,12 +16,12 @@ class VisitorsTableSeeder extends Seeder
         DB::table('visitors')->truncate();
 
         $visitors = [
-            ['name' => 'lailatul', 'nis' => '001', 'created_at' => \Carbon\Carbon::now()],
-            ['name' => 'fitri', 'nis' => '002', 'created_at' => \Carbon\Carbon::now()],
-            ['name' => 'yah', 'nis' => '003', 'created_at' => \Carbon\Carbon::now()],
-            ['name' => 'lail', 'nis' => '003', 'created_at' => \Carbon\Carbon::now()],
-            ['name' => 'fit', 'nis' => '004', 'created_at' => \Carbon\Carbon::now()],
-            ['name' => 'lala', 'nis' => '005', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => '1', 'name' => 'lailatul', 'nis' => '001', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => '2', 'name' => 'fitri', 'nis' => '002', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => '3', 'name' => 'yah', 'nis' => '003', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => '4', 'name' => 'lail', 'nis' => '003', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => '5', 'name' => 'fit', 'nis' => '004', 'created_at' => \Carbon\Carbon::now()],
+            ['id' => '6', 'name' => 'lala', 'nis' => '005', 'created_at' => \Carbon\Carbon::now()],
         ];
 
         // insert batch

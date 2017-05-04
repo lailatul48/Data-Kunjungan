@@ -84,7 +84,7 @@ class VisitorsController extends Controller
      *
      * @apiError EmailHasRegitered The Email must diffrerent.
      */
-    public function update(VisitorsEditRequest $request, $id)
+    public function update(VisitorsCreateRequest $request, $id)
     {
         return $this->visitors->update($id, $request->all());
     }

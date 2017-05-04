@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Users;
+namespace App\Http\Requests\Log;
 
 use App\Http\Requests\Request;
 
@@ -9,7 +9,7 @@ use App\Http\Requests\Request;
  *
  * @package App\Http\Requests\User
  */
-class UsersCreateRequest extends Request
+class LogEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,12 +27,8 @@ class UsersCreateRequest extends Request
      * @var array
      */
     protected $attrs = [
-        'nis'   => 'Nis',
-        'name'   => 'Name',
-         'email'    => 'Email',
-        'password'   => 'Password',
-         'level'    => 'Level',
-        'status'   => 'Status',
+       'description'   => 'Description',
+        'type'   => 'Type',
     ];
 
     /**
@@ -43,12 +39,8 @@ class UsersCreateRequest extends Request
     public function rules()
     {
         return [
-            'nis'   => 'required|max:225',
-            'name'   => 'required|max:225',
-            'email' => 'required|email|unique:contacts,email|max:225',
-            'password'   => 'required|max:30',
-            'level'   => 'required|max:30',
-            'status'   => 'required|max:30',
+            'description'   => 'required|max:225',
+            'type'   => 'required|max:225',
         ];
     }
 

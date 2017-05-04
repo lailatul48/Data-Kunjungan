@@ -17,7 +17,7 @@ class Visitors extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'nis',
+       'id', 'name', 'nis',
     ];
 
 }

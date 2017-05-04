@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('title', 'users')
 @section('content')
+            <div class="row">
+            <div class="col-md-8">
+              <div class="alert alert-dismissible hide" id="errMsg" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <span id="errData"></span>
+              </div>
+            </div>
+          </div>
            <div class="">
         <div class="page-title">
           <div class="title_left">
@@ -47,33 +55,27 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Deskripsi <span class="required"></span>
                         </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <textarea id="textarea" required="required" name="textarea" class="form-control col-md-7 col-xs-12"></textarea>
+                      <textarea id="textarea" name="description" required="required" name="textarea" class="form-control col-md-7 col-xs-12" placeholder="Description"></textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">Type <span class="required"></span>
                         </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <li>
-                        <p>
-                          <input type="checkbox">Baca Buku</p>
-                      </li>
-                      <li>
-                        <p>
-                          <input type="checkbox">Pinjam Buku</p>
-                      </li>
-                      <li>
-                        <p>
-                          <input type="checkbox">Kembalikan Buku</p>
-                      </li>
-                    </div>
-                  </div>
+                    <div class="form-group">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                          <select class="form-control" name="type">
+                            <option name="type">Kembalikan Buku</option>
+                            <option name="type">Pinjam Buku</option>
+                            <option name="type">Membaca Buku</option>
+                          </select>
+                        </div>
+                      </div>
                   <div class="ln_solid"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                      <button class="btn btn-primary" type="button">Cancel</button>
-                      <button class="btn btn-primary" type="reset">Reset</button>
-                      <button type="submit" class="btn btn-success">Submit</button>
+                      <a class="btn btn-primary submit" route={{route('page.list-logs')}}>Kembali</a>
+                        <button class="btn btn-primary submit" id="btnSimpanKembali">Simpan & Kembali</button>
+                        <button class="btn btn-primary submit" id="btnSimpan">Simpan</button>
                     </div>
                   </div>
 
@@ -87,4 +89,62 @@
   </div>
 @endsection
 @section('scripts')
+<script>
+    $(document).ready(function(){
+      
+    });
+    // ini adalah proses submit data menggunakan Ajax
+    $("#btnSimpan").click(function(event) {
+      // kasih ini dong biar gag hard reload
+      event.preventDefault();
+      $.ajax({
+        url: '{{route("log.store")}}', // url post data
+        dataType: 'JSON',
+        type: 'POST',
+        contentType: 'application/x-www-form-urlencoded',
+        data: $("#demo-form2").serialize(), // data tadi diserialize berdasarkan name
+        success: function( data, textStatus, jQxhr ){
+            console.log('status =>', textStatus);
+            console.log('data =>', data);
+            // clear validation error messsages
+            $('#errMsg').addClass('hide');
+            $('#errData').html('');
+            // scroll up
+            // $('html, body').animate({
+            //     scrollTop: $("#nav-top").offset().top
+            // }, 2000);
+            // tampilkan pesan sukses
+            showNotifSuccess();
+            // clear data inputan
+            $('#demo-form2').find("input[type=text], textarea").val("");
+            // kembali kelist book
+        },
+        error: function( data, textStatus, errorThrown ){
+          var messages = jQuery.parseJSON(data.responseText);
+          console.log( errorThrown );
+          // $('html, body').animate({
+          //     scrollTop: $("#nav-top").offset().top
+          // }, 2000);
+          // scroll up 
+          // tampilkan pesan error
+          $('#errData').html('');
+          $('#errMsg').addClass('alert-warning');
+          $('#errMsg').removeClass('hide');
+          $.each(messages, function(i, val) {
+            $('#errData').append('<p>'+ i +' : ' + val +'</p>')
+            console.log(i,val);
+          });          
+          // jangan clear data
+        }
+      });
+    });
+    
+    function showNotifSuccess(){
+      new PNotify({
+        title: 'Success!',
+        text: 'That thing that you were trying to do worked.',
+        type: 'success'
+      });
+	  }
+</script>
     @endsection
