@@ -71,7 +71,7 @@ class LogRepository extends AbstractRepository implements LogInterface, Crudable
      */
     public function update($id, array $data)
     {
-        return parent::create([
+        return parent::update($id, [
             'description' => e($data['description']),
             'type' => e($data['type']),
         ]);
