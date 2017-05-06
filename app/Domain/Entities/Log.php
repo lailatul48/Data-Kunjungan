@@ -5,20 +5,15 @@ namespace App\Domain\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-/**
- * Class Contact
- * @package App\Domain\Entities
- */
-class Log extends Model
+class Log extends Entities
 {
     use SoftDeletes;
 
-    /**
-     * @var array
-     */
     protected $table='log';
     protected $fillable = [
-        'id', 'description', 'type',
+        'id', 'user_id', 'description', 'type'
     ];
 
+    protected $primaryKey = 'id';
+     
 }

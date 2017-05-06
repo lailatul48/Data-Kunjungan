@@ -27,8 +27,9 @@ class LogCreateRequest extends Request
      * @var array
      */
     protected $attrs = [
+        'user_id'   => 'User_id',
         'description'   => 'Description',
-        'type'   => 'Type',
+        'type'   => 'Type'
     ];
 
     /**
@@ -39,8 +40,9 @@ class LogCreateRequest extends Request
     public function rules()
     {
         return [
+            'user_id'   => 'required|max:225',
             'description'   => 'required|max:225',
-            'type'   => 'required|max:225',
+            'type'   => 'required|max:225'
         ];
     }
 

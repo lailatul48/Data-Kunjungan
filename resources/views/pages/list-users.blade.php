@@ -3,15 +3,13 @@
 @section('content')
      <div class="page-title">
             <div class="title_left">
-              <h3><small></small></h3>
+              <h3>List Users</h3>
             </div>
-
+            
             <div class="title_right">
               <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
                   <span class="input-group-btn">
-                      <a class="btn btn-info btn-flat" href={{route('page.create-users')}}><i class="fa fa-lg fa-plus"></i></a>
-                      <a class="btn btn-info btn-flat" href="#"><i class="fa fa-lg fa-refresh"></i></a>
                     </span>
                 </div>
               </div>
@@ -19,12 +17,12 @@
           </div>
 
           <div class="clearfix"></div>
-
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>List Users</h2>
+                  <a class="btn btn-info btn-flat sumbit" href={{route('page.create-users')}}><i class="fa fa-lg fa-plus"></i></a>
+                  <a class="btn btn-info btn-flat sumbit" href={{route('page.list-users')}}><i class="fa fa-lg fa-refresh"></i></a>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -40,6 +38,14 @@
                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                     </li>
                   </ul>
+                  <div class="col-md-4 pull-right">
+              <form method="GET" action="{{route('page.list-users')}}"> 
+                <div class="form-group">
+                  <input type="text" class="form-control" name="search" placeholder="Pencarian..." value="">
+                </div>
+              </form>
+            </div>
+          </div>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -80,6 +86,10 @@
                        @endforeach
                       </tbody>
                       </table>
+                      <div class="col-md-12 text-center">
+     <!--pagination-->
+     {{$users->links()}}
+   </div>
                       
 @endsection
 @section('scripts')

@@ -14,11 +14,13 @@ class CreateLogTable extends Migration
     public function up()
     {
          Schema::create('log', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
+            $table->string('user_id');
             $table->string('description');
             $table->string('type');
             $table->timestamps();
             $table->softDeletes();
+            $table->primary('id');
         });
     }
 
@@ -31,4 +33,5 @@ class CreateLogTable extends Migration
     {
        Schema::drop('log');
     }
+
 }

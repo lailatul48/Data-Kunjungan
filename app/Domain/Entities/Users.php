@@ -21,4 +21,5 @@ class Users extends Model
     ];
 
     protected $hidden = ['password'];
+     protected $primaryKey = 'id';
 }

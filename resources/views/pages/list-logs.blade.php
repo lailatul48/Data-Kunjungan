@@ -3,15 +3,13 @@
 @section('content')
      <div class="page-title">
             <div class="title_left">
-              <h3><small></small></h3>
+              <h3>List Logs</h3>
             </div>
 
             <div class="title_right">
               <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
                   <span class="input-group-btn">
-                       <a class="btn btn-info btn-flat" href={{route('page.create-logs')}}><i class="fa fa-lg fa-plus"></i></a>
-                      <a class="btn btn-info btn-flat" href="#"><i class="fa fa-lg fa-refresh"></i></a>
                     </span>
                 </div>
               </div>
@@ -19,12 +17,12 @@
           </div>
 
           <div class="clearfix"></div>
-
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>List Logs</h2>
+                <a class="btn btn-info btn-flat" href={{route('page.create-logs')}}><i class="fa fa-lg fa-plus"></i></a>
+                <a class="btn btn-info btn-flat" href="#"><i class="fa fa-lg fa-refresh"></i></a>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -40,12 +38,21 @@
                     <li><a class="close-link"><i class="fa fa-close"></i></a>
                     </li>
                   </ul>
+                  <div class="col-md-4 pull-right">
+              <form method="GET" action="{{route('page.list-logs')}}"> 
+                <div class="form-group">
+                  <input type="text" class="form-control" name="search" placeholder="Pencarian..." value="">
+                </div>
+              </form>
+            </div>
+          </div>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
+                        <th>User_Id</th>
                         <th>Description</th>
                         <th>Type</th>
                         <th>Aksi</th>
@@ -56,6 +63,7 @@
                    <tbody>
                         @foreach ($logs as $log)
                           <tr>
+                            <td>{{ $log->user_id }}</td>
                             <td>{{ $log->description }}</td>
                             <td>{{ $log->type }}</td>
                             <td>
@@ -73,6 +81,10 @@
             </div>
           </div>
         </div>
+        <div class="col-md-12 text-center">
+     <!--pagination-->
+     {{$logs->links()}}
+   </div>
 @endsection
 @section('scripts')
 <script>
