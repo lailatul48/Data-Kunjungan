@@ -5,7 +5,7 @@ namespace App\Domain\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Visitors extends Model
+class Visitors extends Entities
 {
     use SoftDeletes;
     

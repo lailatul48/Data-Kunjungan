@@ -22,7 +22,7 @@
               <div class="x_panel">
                 <div class="x_title">
                 <a class="btn btn-info btn-flat" href={{route('page.create-logs')}}><i class="fa fa-lg fa-plus"></i></a>
-                <a class="btn btn-info btn-flat" href="#"><i class="fa fa-lg fa-refresh"></i></a>
+                <a class="btn btn-info btn-flat sumbit" href={{route('page.list-logs')}}><i class="fa fa-lg fa-refresh"></i></a>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -76,15 +76,15 @@
                        @endforeach
                       </tbody>
                       </table>
+        <div class="col-md-12 text-center">
+     <!--pagination-->
+     {{$logs->links()}}
+   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12 text-center">
-     <!--pagination-->
-     {{$logs->links()}}
-   </div>
 @endsection
 @section('scripts')
 <script>

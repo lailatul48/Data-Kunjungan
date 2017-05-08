@@ -11,12 +11,14 @@
 |
 */
 
-$factory->define(App\Domain\Entities\Contact::class, function (Faker\Generator $faker) {
+$factory->define(App\Domain\Entities\Users::class, function (Faker\Generator $faker) {
 
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'phone' => $faker->phoneNumber,
-        'address' => $faker->address
-    ];
+return [
+    'nis' => $faker->numberBetween($min=1000,$max=9000),
+    'name' => $faker->name,
+    'email' => $faker->unique()->safeEmail,
+    'password' =>bcrypt('qwerty'),
+    'level' => $faker->numberBetween(0,1),
+    'status' => $faker->randomElement($array = array ('Siswa','Guru'))
+      ];
 });

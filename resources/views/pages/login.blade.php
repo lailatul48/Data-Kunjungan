@@ -10,16 +10,16 @@
     <title>Data Kunjungan Perpustakaan</title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href={{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}} rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href={{asset('vendors/font-awesome/css/font-awesome.min.css')}} rel="stylesheet">
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href={{asset('vendors/nprogress/nprogress.css')}} rel="stylesheet">
     <!-- Animate.css -->
-    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href={{asset('vendors/animate.css/animate.min.css')}} rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href={{asset('build/css/custom.min.css')}} rel="stylesheet">
   </head>
 
   <body class="login">
@@ -30,16 +30,16 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form name='formLogin' method="post" accept-charset="UTF-8" action="{{route('api.login')}}" class="login-form">
               <h1>Login</h1>
               <div>
-                <input type="text" class="form-control" placeholder="ID Anggota" required="" />
+                <input type="text" name="email" class="form-control" placeholder="Email" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Nis" required="" />
+                <input type="password" name="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
+                <button class="btn btn-default submit">Log in</button>
               </div>
 
               <div class="clearfix"></div>

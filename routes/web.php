@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('pages.dashboard');
 })->name('page.dashboard');
 
+Route::get('/','Auth\LoginController@getLogin')->name('landingpage');
+Route::get('/login','Auth\LoginController@getLogin')->name('page.login');
+
 Route::get('/users','Pages\UsersController@index')->name('page.list-users');
 Route::get('/users/create','Pages\UsersController@create')->name('page.create-users');
 Route::get('/users/{id}/edit','Pages\UsersController@edit')->name('page.edit-users');
@@ -26,3 +29,5 @@ Route::get('/visitors/{id}/edit','Pages\VisitorsController@edit')->name('page.ed
 Route::get('/logs','Pages\LogsController@index')->name('page.list-logs');
 Route::get('/logs/create','Pages\LogsController@create')->name('page.create-logs');
 Route::get('/logs/{id}/edit','Pages\LogsController@edit')->name('page.edit-logs');
+
+

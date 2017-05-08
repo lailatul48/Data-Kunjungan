@@ -72,15 +72,15 @@
                        @endforeach
                       </tbody>
                       </table>
+         <div class="col-md-12 text-center">
+     <!--pagination-->
+     {{$visitors->links()}}
+   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-         <div class="col-md-12 text-center">
-     <!--pagination-->
-     {{$visitors->links()}}
-   </div>
 @endsection
 @section('scripts')
 <script>
@@ -101,7 +101,7 @@
       if (isConfirm) {
         // delete data using ajax
         $.ajax({
-          url: "/api/visitors/" visitorId,
+          url: "/api/visitors/" + visitorId,
           type: 'DELETE',
           success: function( data, textStatus, jQxhr ){
             console.log(data);
