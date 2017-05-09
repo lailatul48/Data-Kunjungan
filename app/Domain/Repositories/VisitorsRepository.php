@@ -23,9 +23,9 @@ class VisitorsRepository extends AbstractRepository implements VisitorsInterface
      * VisitorsRepository constructor.
      * @param Visitors $Visitors
      */
-    public function __construct(Visitors $Visitors)
+    public function __construct(Visitors $visitors)
     {
-        $this->model = $Visitors;
+        $this->model = $visitors;
     }
 
     /**
@@ -46,8 +46,13 @@ class VisitorsRepository extends AbstractRepository implements VisitorsInterface
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
     {
-        // query to aql
-        return parent::paginate($limit, $page, $column, 'name', $search);
+      // query to aql
+        $visitors = $this->model
+        ->where('name', 'like', '%' . $search . '%')
+        ->orderBy('created_at', 'desc')
+        ->paginate($limit);
+        
+        return $visitors;
     }
 
     /**

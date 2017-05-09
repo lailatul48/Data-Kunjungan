@@ -45,11 +45,15 @@ class UsersRepository extends AbstractRepository implements UsersInterface, Crud
      * @return \Illuminate\Pagination\Paginator
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
-    {
-        // query to aql
-        return parent::paginate($limit, $page, $column, 'name', $search);
+     {
+      // query to aql
+        $users = $this->model
+        ->where('name', 'like', '%' . $search . '%')
+        ->orderBy('created_at', 'desc')
+        ->paginate($limit);
+        
+        return $users;
     }
-
     /**
      * @param array $data
      * @return \Symfony\Component\HttpFoundation\Response

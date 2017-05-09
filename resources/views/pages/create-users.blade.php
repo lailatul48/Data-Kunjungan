@@ -99,7 +99,6 @@
                         <button class="btn btn-primary submit" id="btnSimpan">Simpan</button>
                       </div>
                     </div>
-
                   </form>
                 </div>
               </div>
@@ -152,7 +151,7 @@
           $('#errMsg').addClass('alert-warning');
           $('#errMsg').removeClass('hide');
           $.each(messages, function(i, val) {
-            $('#errData').append('<p>'i +' : ' val +'</p>')
+            $('#errData').append('<p>'+ i +' : ' + val +'</p>')
             console.log(i,val);
           });          
           // jangan clear data
@@ -168,7 +167,7 @@
         dataType: 'JSON',
         type: 'POST',
         contentType: 'application/x-www-form-urlencoded',
-        data: $("#formUser").serialize(), // data tadi diserialize berdasarkan name
+        data: $("#demo-form2").serialize(), // data tadi diserialize berdasarkan name
         success: function( data, textStatus, jQxhr ){
             console.log('status =>', textStatus);
             console.log('data =>', data);
@@ -183,7 +182,7 @@
             showNotifSuccess();
             window.location.replace('{{route("page.list-users")}}');
             // clear data inputan
-            $('#formUser').find("input[type=text], textarea").val("");
+            $('#demo-form2').find("input[type=text], textarea").val("");
             // kembali kelist book
         },
         error: function( data, textStatus, errorThrown ){
@@ -198,13 +197,14 @@
           $('#errMsg').addClass('alert-warning');
           $('#errMsg').removeClass('hide');
           $.each(messages, function(i, val) {
-            $('#errData').append('<p>'i +' : ' val +'</p>')
+            $('#errData').append('<p>'+ i +' : ' + val +'</p>')
             console.log(i,val);
           });          
           // jangan clear data
         }
       });
     });
+
     
     function showNotifSuccess(){
       new PNotify({

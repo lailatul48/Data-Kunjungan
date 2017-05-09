@@ -20,6 +20,8 @@
 
     <!-- Custom Theme Style -->
     <link href={{asset('build/css/custom.min.css')}} rel="stylesheet">
+    <link href={{asset('vendors/pnotify/dist/pnotify.css')}} rel="stylesheet">
+    <link href={{asset('vendors/pnotify/dist/pnotify.buttons.css')}} rel="stylesheet">
   </head>
 
   <body class="login">
@@ -43,12 +45,6 @@
               </div>
 
               <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
-                </p>
-
                 <div class="clearfix"></div>
                 <br />
               </div>
@@ -58,19 +54,19 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <form id="formRegister">
               <h1>Create Account</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="username" class="form-control" placeholder="Username" value="" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="email" name="email" class="form-control" placeholder="Email" value="" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" name="password" class="form-control" placeholder="Password"  value="" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <button class="btn btn-default submit" id="btnSimpan">Submit</button>
               </div>
 
               <div class="clearfix"></div>
@@ -79,7 +75,6 @@
                 <p class="change_link">Already a member ?
                   <a href="#signin" class="to_register"> Log in </a>
                 </p>
-
                 <div class="clearfix"></div>
                 <br />
               </div>

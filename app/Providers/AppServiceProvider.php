@@ -35,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
          $this->app->when('App\Http\Controllers\UsersController')
             ->needs('App\Domain\Contracts\UsersInterface')
             ->give('App\Domain\Repositories\UsersRepository');
+
     }
 }

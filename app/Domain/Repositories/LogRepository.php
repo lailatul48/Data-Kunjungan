@@ -23,9 +23,9 @@ class LogRepository extends AbstractRepository implements LogInterface, Crudable
      * LogRepository constructor.
      * @param Log $Log
      */
-    public function __construct(Log $Log)
+    public function __construct(Log $log)
     {
-        $this->model = $Log;
+        $this->model = $log;
     }
 
     /**
@@ -45,9 +45,14 @@ class LogRepository extends AbstractRepository implements LogInterface, Crudable
      * @return \Illuminate\Pagination\Paginator
      */
     public function paginate($limit = 10, $page = 1, array $column = ['*'], $field, $search = '')
-    {
-        // query to aql
-        return parent::paginate($limit, $page, $column, 'description', $search);
+     {
+      // query to aql
+        $log = $this->model
+        ->where('user_id', 'like', '%' . $search . '%')
+        ->orderBy('created_at', 'desc')
+        ->paginate($limit);
+        
+        return $log;
     }
 
     /**
