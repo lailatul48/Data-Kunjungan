@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('pages.dashboard');
 })->name('page.dashboard');
 
-Route::get('/','Auth\LoginController@getLogin')->name('landingpage');
+// Route::get('/','Auth\LoginController@getLogin')->name('landingpage');
 Route::get('/login','Auth\LoginController@getLogin')->name('page.login');
 
 Route::get('/users','Pages\UsersController@index')->name('page.list-users');

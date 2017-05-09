@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Domain\Entities\Users;
@@ -54,18 +55,13 @@ class LoginController extends Controller
         if ($this->auth->attempt($request->only('email', 'password'), true)) {
             
             // simpan ke session
-            session()->put('users_id', Auth::users()->id);
-            session()->put('email', Auth::users()->email);
-            session()->put('name', Auth::users()->name);
-            session()->put('level', Auth::users()->level);
+            session()->put('users_id', Auth::user()->id);
+            session()->put('email', Auth::user()->email);
+            session()->put('name', Auth::user()->name);
+            session()->put('level', Auth::user()->level);
             
-            // cek apakah levelnya
-            if (Auth::users()->level == 1) {
-                // redirect ke backoffice
-                return redirect()->route('page.dashboard');
-            } else {
-                return redirect()->route('landingpage');
-            }
+            return redirect()->route('page.dashboard');
+            
         }
         
         // redirect to login and set the flash message
@@ -81,4 +77,4 @@ class LoginController extends Controller
         
         return redirect()->route('page.login');
     }
-}
+}   
