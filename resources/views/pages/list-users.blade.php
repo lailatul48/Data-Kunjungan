@@ -52,10 +52,8 @@
                   <table id="datatable-buttons" class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th>Nis</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Status</th>
                         <th>Level</th>
                         <th>Aksi</th>
                       </tr>
@@ -65,10 +63,8 @@
                    <tbody>
                         @foreach ($users as $user)
                           <tr>
-                            <td>{{ $user->nis }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->status }}</td>
                             <td>
                               @if($user->level == 1)
                                 <span class="label label-primary">Administrator</span>

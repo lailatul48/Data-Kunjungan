@@ -21,7 +21,6 @@
                   </li>
                   <li class="" id="nav-list-users"><a href={{route('page.list-users')}}><i class="fa fa-user"></i> User</a>
                   </li>
-                  <li class="" id="nav-list-visitors"><a href={{route('page.list-visitors')}}><i class="fa fa-user"></i> Visitors</a>
                   </li>
                   <li class="" id="nav-list-logs"><a href={{route('page.list-logs')}}><i class="fa fa-user"></i> Logs</a>
                   </li>

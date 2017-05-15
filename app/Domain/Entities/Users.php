@@ -14,7 +14,7 @@ class Users extends Entities implements AuthenticatableContract, CanResetPasswor
    use SoftDeletes, Authenticatable, CanResetPassword;
 
     protected $fillable = [
-        'id', 'nis', 'name', 'email', 'password', 'level', 'status',
+        'id', 'name', 'email', 'password', 'level'
     ];
 
     protected $hidden = [

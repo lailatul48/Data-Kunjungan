@@ -27,11 +27,9 @@ class UsersEditRequest extends Request
      * @var array
      */
     protected $attrs = [
-        'nis'   => 'Nis',
         'name'   => 'Name',
          'email'    => 'Email',
          'level'    => 'Level',
-        'status'   => 'Status'
     ];
 
     /**
@@ -42,11 +40,9 @@ class UsersEditRequest extends Request
     public function rules()
     {
         return [
-            'nis'   => 'required|max:225',
             'name'   => 'required|max:225',
             'email' => 'required|email|unique:contacts,email|max:225',
             'level'   => 'required|max:30',
-            'status'   => 'required|max:30'
         ];
     }
 

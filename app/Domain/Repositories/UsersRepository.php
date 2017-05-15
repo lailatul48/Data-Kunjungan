@@ -62,12 +62,10 @@ class UsersRepository extends AbstractRepository implements UsersInterface, Crud
     {
         // execute sql insert
         return parent::create([
-            'nis' => e($data['nis']),
             'name' => e($data['name']),
             'email' => e($data['email']),
             'password' =>bcrypt (e($data['password'])),
             'level' => e($data['level']),
-            'status' => e($data['status'])
         ]);
 
     }
@@ -80,11 +78,9 @@ class UsersRepository extends AbstractRepository implements UsersInterface, Crud
     public function update($id, array $data)
     {
         return parent::update($id, [
-            'nis' => e($data['nis']),
             'name' => e($data['name']),
             'email' => e($data['email']),
             'level' => e($data['level']),
-            'status' => e($data['status']),
         ]);
 
     }

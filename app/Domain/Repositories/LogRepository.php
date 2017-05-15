@@ -48,7 +48,7 @@ class LogRepository extends AbstractRepository implements LogInterface, Crudable
      {
       // query to aql
         $log = $this->model
-        ->where('user_id', 'like', '%' . $search . '%')
+        ->where('nama', 'like', '%' . $search . '%')
         ->orderBy('created_at', 'desc')
         ->paginate($limit);
         
@@ -63,9 +63,11 @@ class LogRepository extends AbstractRepository implements LogInterface, Crudable
     {
         // execute sql insert
         return parent::create([
-            'user_id' => e($data['user_id']),
-            'description' => e($data['description']),
-            'type' => e($data['type'])
+            'nama' => e($data['nama']),
+            'email' => e($data['email']),
+            'telephone' => e($data['telephone']),
+            'keperluan' => e($data['keperluan']),
+            'description' => e($data['description'])
         ]);
 
     }
@@ -78,9 +80,11 @@ class LogRepository extends AbstractRepository implements LogInterface, Crudable
     public function update($id, array $data)
     {
         return parent::update($id, [
-            'user_id' => e($data['user_id']),
-            'description' => e($data['description']),
-            'type' => e($data['type'])
+             'nama' => e($data['nama']),
+            'email' => e($data['email']),
+            'telephone' => e($data['telephone']),
+            'keperluan' => e($data['keperluan']),
+            'description' => e($data['description'])
         ]);
 
     }

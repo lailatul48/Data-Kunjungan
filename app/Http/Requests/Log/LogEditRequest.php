@@ -27,8 +27,11 @@ class LogEditRequest extends Request
      * @var array
      */
     protected $attrs = [
-       'description'   => 'Description',
-        'type'   => 'Type',
+       'nama'   => 'Nama',
+        'email'   => 'Email',
+        'telephone'   => 'Telephone',
+        'keperluan'   => 'Keperluan',
+        'desciption'   => 'Desciption'
     ];
 
     /**
@@ -39,8 +42,11 @@ class LogEditRequest extends Request
     public function rules()
     {
         return [
-            'description'   => 'required|max:225',
-            'type'   => 'required|max:225',
+            'nama'   => 'required|max:225',
+            'email' => 'required|email|unique:contacts,email|max:225',
+            'telephone'   => 'required|max:225',
+            'keperluan'   => 'required|max:225',
+            'description'   => 'required|max:225'
         ];
     }
 

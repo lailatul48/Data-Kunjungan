@@ -51,32 +51,46 @@
                 <br />
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-                    <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user_id">User_Id <span class="required"></span>
+                   <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Nama <span class="required"></span>
                         </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <textarea id="user_id" name="user_id" required="required" class="form-control col-md-7 col-xs-12" placeholder="User_Id"></textarea>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="nama" name="nama" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
                     </div>
-                  </div>
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Deskripsi <span class="required"></span>
-                        </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <textarea id="textarea" name="description" required="required" name="textarea" class="form-control col-md-7 col-xs-12" placeholder="Description"></textarea>
-                    </div>
-                  </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">Type <span class="required"></span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required"></span>
                         </label>
-                    <div class="form-group">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                   <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required"></span>
+                        </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="telephone" name="telephone" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="keperluan">Keperluan <span class="required"></span>
+                        </label>
+                        <div class="form-group">
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                          <select class="form-control" name="type">
-                            <option name="type">Kembalikan Buku</option>
-                            <option name="type">Pinjam Buku</option>
-                            <option name="type">Membaca Buku</option>
+                          <select class="form-control" name="keperluan">
+                            <option>Kembalikan Buku</option>
+                            <option>Pinjam Buku</option>
+                            <option>Membaca Buku</option>
                           </select>
                         </div>
                       </div>
+                    <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Deskripsi <span class="required"></span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <textarea id="textarea" name="description" required="required" name="textarea" class="form-control col-md-7 col-xs-12"></textarea>
+                    </div>
+                  </div>
                   <div class="ln_solid"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

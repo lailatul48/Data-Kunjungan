@@ -11,7 +11,7 @@ class Log extends Entities
 
     protected $table='log';
     protected $fillable = [
-        'id', 'user_id', 'description', 'type'
+        'id', 'nama', 'email', 'telephone', 'keperluan', 'description'
     ];
 
     protected $primaryKey = 'id';

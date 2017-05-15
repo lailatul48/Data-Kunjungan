@@ -52,9 +52,11 @@
                   <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th>User_Id</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                        <th>Keperluan</th>
                         <th>Description</th>
-                        <th>Type</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -63,9 +65,11 @@
                    <tbody>
                         @foreach ($logs as $log)
                           <tr>
-                            <td>{{ $log->user_id }}</td>
+                            <td>{{ $log->nama }}</td>
+                            <td>{{ $log->email }}</td>
+                            <td>{{ $log->telephone }}</td>
+                            <td>{{ $log->keperluan }}</td>
                             <td>{{ $log->description }}</td>
-                            <td>{{ $log->type }}</td>
                             <td>
                           <a class="btn btn-info btn-flat" href={{route('page.edit-logs',['id' => $log->id])}}>
                               <i class="fa fa-lg fa-edit"></i></a>
