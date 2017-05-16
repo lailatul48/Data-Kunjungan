@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard');
-})->name('page.dashboard');
+Route::get('/', 'HomeController@dashboard')->name('page.dashboard');
+
 
 // Route::get('/','Auth\LoginController@getLogin')->name('landingpage');
-Route::get('/login','Auth\LoginController@getLogin')->name('page.login');
+// Route::get('/login','Auth\LoginController@getLogin')->name('page.login');
 
 Route::get('/users','Pages\UsersController@index')->name('page.list-users');
 Route::get('/users/create','Pages\UsersController@create')->name('page.create-users');
@@ -29,3 +28,7 @@ Route::get('/logs/{id}/edit','Pages\LogsController@edit')->name('page.edit-logs'
 Route::get('/landingpage', ['as' => 'page.landingpage', 'uses' => 'PageController@getlandingpage']);
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

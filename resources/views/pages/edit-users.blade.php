@@ -1,10 +1,10 @@
 @extends('layouts.dashboard')
-@section('title', 'Edit log')
+@section('title', 'Edit Users')
 @section('content')
            <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3>Edit Logs</h3>
+              <h3>Edit Users</h3>
             </div>
 
             <div class="title_right">
@@ -44,45 +44,26 @@
                   <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Nama <span class="required"></span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required"></span>
                         </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nama" name="nama" required="required" class="form-control col-md-7 col-xs-12" value="{{$log->nama}}">
+                        <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12" value="{{$user->name}}">
                       </div>
                     </div>
                   <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required"></span>
                         </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12" value="{{$log->email}}">
+                        <input type="text" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12" value="{{$user->email}}">
                       </div>
                     </div>
                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required"></span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="level">Level <span class="required"></span>
                         </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="telephone" name="telephone" required="required" class="form-control col-md-7 col-xs-12" value="{{$log->telephone}}">
+                        <input type="text" id="level" name="level" required="required" class="form-control col-md-7 col-xs-12" value="{{$user->level}}">
                       </div>
                     </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="keperluan">Keperluan <span class="required"></span>
-                        </label>
-                        <div class="form-group">
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                          <select class="form-control" name="keperluan">
-                            <option>Kembalikan Buku</option>
-                            <option>Pinjam Buku</option>
-                            <option>Membaca Buku</option>
-                          </select>
-                        </div>
-                      </div>
-                    <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Deskripsi <span class="required"></span>
-                        </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <textarea id="textarea" name="description" required="required" name="textarea" class="form-control col-md-7 col-xs-12">{{$log->description}}</textarea>
-                    </div>
-                  </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -105,8 +86,8 @@
     // aktifkan class nav user
     $('#nav-dashboard').removeClass('active');
     $('#nav-list-visitors').removeClass('active');
-    $('#nav-list-users').removeClass('active');
-    $('#nav-list-logs').addClass('active');
+    $('#nav-list-logs').removeClass('active');
+    $('#nav-list-users').addClass('active');
   });
 </script>
 <script>
@@ -118,7 +99,7 @@
       // kasih ini dong biar gag hard reload
       event.preventDefault();
       $.ajax({
-        url: '{{route("log.update",['id' => $log->id])}}', // url edit data
+        url: '{{route("users.update",['id' => $user->id])}}', // url edit data
         dataType: 'JSON',
         type: 'PUT',
         contentType: 'application/x-www-form-urlencoded',
@@ -136,7 +117,7 @@
             // tampilkan pesan sukses
             showNotifSuccess();
             // kembali kelist book
-            window.location.href = '{{route("page.list-logs")}}'
+            window.location.href = '{{route("page.list-users")}}'
         },
         error: function( data, textStatus, errorThrown ){
           var messages = jQuery.parseJSON(data.responseText);

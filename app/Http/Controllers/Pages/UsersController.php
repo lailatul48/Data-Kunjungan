@@ -17,6 +17,7 @@ class UsersController extends Controller
      */
     public function __construct(UsersRepository $user)
     {
+        $this->middleware('auth');
         $this->user = $user;
     }
     public function index(Request $request)

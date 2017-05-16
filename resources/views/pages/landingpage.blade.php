@@ -100,9 +100,6 @@
         </div>
     </header>
 
-    
-
-
     <section id="banner" class="wow fadeInUp">
         <div class="container">
             <div class="row">

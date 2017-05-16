@@ -18,6 +18,7 @@ class LogsController extends Controller
      */
     public function __construct(LogRepository $log)
     {
+        $this->middleware('auth');
         $this->logs = $log;
     }
     public function index(Request $request)

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 @section('title', 'users')
 @section('content')
 <div class="row">
@@ -191,7 +191,6 @@
       });
     });
 
-    
     function showNotifSuccess(){
       new PNotify({
         title: 'Success!',
