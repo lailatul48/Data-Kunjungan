@@ -31,7 +31,7 @@ class LogCreateRequest extends Request
         'email'   => 'Email',
         'telephone'   => 'Telephone',
         'keperluan'   => 'Keperluan',
-        'desciption'   => 'Desciption'
+        'description'   => 'Description'
     ];
 
     /**
@@ -43,7 +43,7 @@ class LogCreateRequest extends Request
     {
         return [
             'nama'   => 'required|max:225',
-            'email' => 'required|email|unique:contacts,email|max:225',
+            'email' => 'required|email|max:225',
             'telephone'   => 'required|max:225',
             'keperluan'   => 'required|max:225',
             'description'   => 'required|max:225'

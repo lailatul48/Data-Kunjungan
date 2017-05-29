@@ -17,7 +17,7 @@ class CreateLogTable extends Migration
             $table->uuid('id');
             $table->string('nama');
             $table->string('email')->unique();
-            $table->integer('telephone');
+            $table->string('telephone');
             $table->string('keperluan');
             $table->string('description');
             $table->timestamps();

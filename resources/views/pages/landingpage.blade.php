@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Meetup</title>
+        <title>Buku Tamu SMKN 1 Kepanjen</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="assets/css/flexslider.min.css" rel="stylesheet" type="text/css" media="all"/>
@@ -11,6 +11,9 @@
         <link href="assets/css/pe-icon-7-stroke.min.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="assets/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href={{asset('vendors/pnotify/dist/pnotify.css')}} rel="stylesheet">
+        <link href={{asset('vendors/pnotify/dist/pnotify.buttons.css')}} rel="stylesheet">
+        
         <!--[if gte IE 9]>
         	<link rel="stylesheet" type="text/css" href="css/ie9.css" />
 		<![endif]-->
@@ -37,28 +40,27 @@
 								</div>
 								
 								<div class="col-md-5 col-md-offset-1 col-sm-6">
-									<form class="register email-form">
+									<form id="guest" class="register email-form">
 										<h1 class="text-white">Register Now</h1>
 										<div class="col-sm-6">
-											<input class="form-name validate-required" type="text" placeholder="Nama" name="Nama">
+											<input class="form-name validate-required" type="text" placeholder="Nama" name="nama" required> 
 										</div>
 										<div class="col-sm-6">
-											<input class="form-email validate-email" type="text" placeholder="Email" name="email">
+											<input class="form-email validate-email" type="text" placeholder="Email" name="email" required>
 										</div>
 										<div class="col-sm-6">
-											<input class="form-phone" type="text" placeholder="Telephone" name="telephone">
+											<input class="form-phone" type="text" placeholder="Telephone" name="telephone" required>
 										</div>
                                         
-                                        <div class="col-sm-12">
-											<input class="form-phone" type="text" placeholder="Keperluan" name="phone">
+                    <div class="col-sm-12">
+											<input class="form-phone" type="text" placeholder="Keperluan" name="keperluan" required>
 										</div>
-                                         <div class="col-sm-12">
-											<input class="form-phone" type="text" placeholder="Description" name="phone">
+                    <div class="col-sm-12">
+											<input class="form-phone" type="text" placeholder="Description" name="description" required="true">
 										</div>
 								
 										<div class="col-sm-12">
-											<input type="submit" value="Submit" class="btn">
-											
+											<input class="btn btn-primary submit" type="submit" id="btnSimpan">
 										</div>
 								
 										<div class="col-sm-12">
@@ -86,6 +88,50 @@
         <script src="assets/js/twitterfetcher.min.js"></script>
         <script src="assets/js/placeholders.min.js"></script>
         <script src="assets/js/scripts.js"></script>
+        <script src={{asset('vendors/pnotify/dist/pnotify.js')}}></script>
+        <script src={{asset('vendors/pnotify/dist/pnotify.buttons.js')}}></script>
+		<script>
+			$(document).ready(function(){
+      
+    });
+    $("#btnSimpan").click(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: '{{route("log.store")}}',
+        dataType: 'JSON',
+        type: 'POST',
+        contentType: 'application/x-www-form-urlencoded',
+        data: $("#guest").serialize(),
+        success: function( data, textStatus, jQxhr ){
+            console.log('status =>', textStatus);
+            console.log('data =>', data);
+            $('#errMsg').addClass('hide');
+            $('#errData').html('');
+            showNotifSuccess();
+            $('#guest').find("input[type=text], textarea").val("");
+        },
+        error: function( data, textStatus, errorThrown ){
+          var messages = jQuery.parseJSON(data.responseText);
+          console.log( errorThrown );
+          $('#errData').html('');
+          $('#errMsg').addClass('alert-warning');
+          $('#errMsg').removeClass('hide');
+          $.each(messages, function(i, val) {
+            $('#errData').append('<p>'+ i +' : ' + val +'</p>')
+            console.log(i,val);
+          });          
+        }
+      });
+    });
+
+	function showNotifSuccess(){
+      new PNotify({
+        title: 'Success!',
+        text: 'Thanks You',
+        type: 'success'
+      });
+	  }
+		</script>
     </body>
 </html>
 				

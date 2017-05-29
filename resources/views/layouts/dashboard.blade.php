@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Data Kunjungan Perpustakaan - @yield('title')</title>
+    <title>Buku Tamu SMKN 1 Kepanjen - @yield('title')</title>
 
     <!-- Bootstrap -->
     <link href={{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}} rel="stylesheet">
@@ -144,29 +144,19 @@
         switch (pathname) {
             case '/':
                 $('#nav-list-users').removeClass('active');
-                $('#nav-list-visitors').removeClass('active');
                 $('#nav-list-logs').removeClass('active');
                 $('#nav-dashboard').addClass('active');
                 break; 
             case '/users':
             case '/users/create':
                 $('#nav-dashboard').removeClass('active');
-                $('#nav-list-visitors').removeClass('active');
                 $('#nav-list-logs').removeClass('active');
                 $('#nav-list-users').addClass('active');
                 break; 
-            case '/visitors':
-            case '/visitors/create':
-                $('#nav-dashboard').removeClass('active');
-                $('#nav-list-logs').removeClass('active');
-                $('#nav-list-users').removeClass('active');
-                $('#nav-list-visitors').addClass('active');
-                break;  
             case '/logs':
             case '/logs/create':
                 $('#nav-dashboard').removeClass('active');
                 $('#nav-list-users').removeClass('active');
-                $('#nav-list-visitors').removeClass('active');
                 $('#nav-list-logs').addClass('active');
                 break;  
             default: 
