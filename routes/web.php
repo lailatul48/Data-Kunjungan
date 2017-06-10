@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@dashboard')->name('page.dashboard');
+Route::get('/dashboard', 'HomeController@dashboard')->name('page.dashboard');
 
 
 // Route::get('/','Auth\LoginController@getLogin')->name('landingpage');
@@ -25,7 +25,7 @@ Route::get('/logs','Pages\LogsController@index')->name('page.list-logs');
 Route::get('/logs/create','Pages\LogsController@create')->name('page.create-logs');
 Route::get('/logs/{id}/edit','Pages\LogsController@edit')->name('page.edit-logs');
 
-Route::get('/landingpage', ['as' => 'page.landingpage', 'uses' => 'PageController@getlandingpage']);
+Route::get('/', ['as' => 'page.landingpage', 'uses' => 'PageController@getlandingpage']);
 
 
 

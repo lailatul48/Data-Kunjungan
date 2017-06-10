@@ -16,7 +16,7 @@ class CreateLogTable extends Migration
          Schema::create('log', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('nama');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('telephone');
             $table->string('keperluan');
             $table->string('description');
