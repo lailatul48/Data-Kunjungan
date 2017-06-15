@@ -66,7 +66,7 @@
                     <input class="form-phone" type="text" placeholder="Description" name="description" required="true">
                   </div>
                   <div class="col-sm-12">
-                    <input class="btn btn-primary submit" type="button" id="btnSimpan">
+                    <button class="btn btn-primary" type="submit" id="btnSimpan">Submit</button>
                   </div>
                 </form>
               </div>
@@ -89,36 +89,37 @@
 
       });
       $("#btnSimpan").click(function(event) {
-            event.preventDefault();
-            $('#errData').html('');
-            $('#errMsg').addClass('hide');
-            $('#errData').html('');
-            $.ajax({
-                url: '{{route("log.store")}}',
-                dataType: 'JSON',
-                type: 'POST',
-                contentType: 'application/x-www-form-urlencoded',
-                data: $("#guest").serialize(),
-                success: function(data, textStatus, jQxhr) {
-                  console.log('status =>', textStatus);
-                  console.log('data =>', data);
-                  $('#errMsg').addClass('alert-success');
-                  $('#errMsg').removeClass('hide');
-                  $('#errData').append( < p > Terima kasih sudah berkunjung di SMKN 1 Kepanjen. < /p>);
-                      $('#guest').find("input[type=text], textarea").val("");
-                    },
-                    error: function(data, textStatus, errorThrown) {
-                      var messages = jQuery.parseJSON(data.responseText);
-                      console.log(errorThrown);
-                      $('#errMsg').addClass('alert-warning');
-                      $('#errMsg').removeClass('hide');
-                      $.each(messages, function(i, val) {
-                        $('#errData').append('<p>' + i + ' : ' + val + '</p>')
-                        console.log(i, val);
-                      });
-                    }
-                });
+        event.preventDefault();
+        $('#errData').html('');
+        $('#errMsg').addClass('hide');
+        $('#errMsg').removeClass('alert-success alert-warning');
+        $('#errData').html('');
+        $.ajax({
+          url: '{{route("log.store")}}',
+          dataType: 'JSON',
+          type: 'POST',
+          contentType: 'application/x-www-form-urlencoded',
+          data: $("#guest").serialize(),
+          success: function(data, textStatus, jQxhr) {
+            console.log('status =>', textStatus);
+            console.log('data =>', data);
+            $('#errMsg').addClass('alert-success');
+            $('#errMsg').removeClass('hide');
+            $('#errData').append("<p> Terima kasih sudah berkunjung di SMKN 1 Kepanjen. </p>");
+            $('#guest').find("input[type=text], textarea").val("");
+          },
+          error: function(data, textStatus, errorThrown) {
+            var messages = jQuery.parseJSON(data.responseText);
+            console.log(errorThrown);
+            $('#errMsg').addClass('alert-warning');
+            $('#errMsg').removeClass('hide');
+            $.each(messages, function(i, val) {
+              $('#errData').append('<p>' + i + ' : ' + val + '</p>')
+              console.log(i, val);
             });
+          }
+        });
+      });
     </script>
 </body>
 
